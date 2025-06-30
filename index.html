@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafos de Co-ocurrencia por Año</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f4f4f4; 
+            color: #333; 
+        }
+        h1, h2 { 
+            color: #0056b3; 
+        }
+        
+        /* Contenedor principal de dos columnas */
+        .main-content { 
+            display: flex; /* Habilita Flexbox */
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+            gap: 20px; /* Espacio entre las columnas */
+            margin-top: 20px;
+        }
+
+        /* Columna izquierda: Controles y Palabras Asociadas */
+        .left-column {
+            flex: 1; /* Permite que crezca, pero con un ancho mínimo */
+            min-width: 280px; /* Ancho mínimo para la columna izquierda */
+            max-width: 350px; /* Ancho máximo para la columna izquierda */
+            display: flex;
+            flex-direction: column; /* Apila los elementos verticalmente */
+            gap: 20px; /* Espacio entre el selector y el panel de palabras */
+        }
+
+        .controls { 
+            padding: 15px; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+
+        /* Panel de Palabras Asociadas */
+        #associatedWordsDisplay {
+            padding: 15px;
+            background-color: #e9f7ef; /* Un color suave para destacar */
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+            overflow-y: auto; /* Agrega scroll si la lista es muy larga */
+            max-height: 450px; /* Ajusta la altura máxima para que no sea muy larga */
+            flex-grow: 1; /* Permite que crezca para llenar el espacio restante en la columna */
+        }
+        #associatedWordsDisplay h3 {
+            margin-top: 0;
+            color: #28a745;
+            font-size: 1.2em;
+        }
+        #associatedWordsDisplay ul {
+            list-style-type: disc; /* Puntos para cada elemento de la lista */
+            padding-left: 20px;
+            margin: 0;
+        }
+        #associatedWordsDisplay li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        /* Columna derecha: Grafo */
+        .graph-area { 
+            flex: 3; /* Ocupa más espacio que la columna izquierda */
+            min-width: 600px; /* Ancho mínimo para el grafo */
+            padding: 15px; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .graph-container-wrapper {
+            width: 100%; 
+            height: 700px; /* Altura fija para el grafo esto es una pruebassss*/
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+        }
+        select { 
+            width: 100%; 
+            padding: 8px; 
+            border-radius: 4px; 
+            border: 1px solid #ddd; 
+            margin-bottom: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Análisis de Grafos de Co-ocurrencia por Año</h1>
+
+    <div class="main-content">
+        <div class="left-column">
+            <div class="controls">
+                <h2>Seleccionar Año</h2>
+                <select id="yearSelector">
+                    <option value="">Selecciona un año</option>
+                    
+                        <option value="2020" data-graph="2020\Top-100\grafo_coocurrencia_interactivo_100.html">2020</option>
+                    
+                        <option value="2021" data-graph="2021\Top-100\grafo_coocurrencia_interactivo_100.html">2021</option>
+                    
+                        <option value="2022" data-graph="2022\Top-100\grafo_coocurrencia_interactivo_100.html">2022</option>
+                    
+                        <option value="2023" data-graph="2023\Top-100\grafo_coocurrencia_interactivo_100.html">2023</option>
+                    
+                        <option value="2024" data-graph="2024\Top-100\grafo_coocurrencia_interactivo_100.html">2024</option>
+                    
+                        <option value="2025" data-graph="2025\Top-100\grafo_coocurrencia_interactivo_100.html">2025</option>
+                    
+                </select>
+            </div>
+            <div id="associatedWordsDisplay">
+                <p>Haz clic en un nodo para ver sus palabras asociadas.</p>
+            </div>
+        </div>
+        
+        <div class="graph-area">
+            <h2>Grafo Interactivo</h2>
+            <div id="graphContainer" class="graph-container-wrapper">
+                <p>Selecciona un año para cargar el grafo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./graph_selector.js"></script>
+</body>
+</html>
