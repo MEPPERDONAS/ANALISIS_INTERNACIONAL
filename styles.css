@@ -1,0 +1,23 @@
+/* styles.css */
+
+body { 
+    font-family: 'Ginebra', Arial, sans-serif;
+    margin: 20px; 
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); /* Gradiente de fondo */
+    color: #343a40; 
+    min-height: 100vh; /* Asegura que el gradiente ocupe toda la altura */
+}
+h1, h2 { 
+    color: #0056b3; 
+    font-family: 'Ginebra', sans-serif;
+    font-weight: 600;
+}
+
+/* Contenedor principal de dos columnas */
+.main-content { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 25px;
+    margin-top: 30px;
+}
+/* ... el resto de tu CSS ... */
